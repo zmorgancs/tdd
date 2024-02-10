@@ -61,3 +61,16 @@ class CounterTest(TestCase):
         result = client.get('/counters/readCounter')             # Read the counter
         self.assertEqual(result.status_code, status.HTTP_200_OK)  # Check that the counter was read successfully
         result = client.get('/counters/fakeCounter')             # Read a counter that doesn't exist
+
+    def test_delete_a_counter(self):
+        """ It should delete a counter """
+        client = app.test_client()
+        result = self.client.post('/counters/deleteThisCounter')      # Create the counter we want to delete
+        self.assertEqual(result.status_code, status.HTTP_201_CREATED)  # Check that the counter was created successfully
+
+        result = self.client.delete('/counters/deleteThisCounter')    # Delete the counter
+        self.assertEqual(result.status_code, status.HTTP_204_NO_CONTENT)  # Make sure the counter was deleted
+
+        result = self.client.delete('/counters/deleteThisCounter')  # Try to delete a counter that doesn't exist
+        self.assertEqual(result.status_code, status.HTTP_404_NOT_FOUND)  # Make sure the counter DNE
+
