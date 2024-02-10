@@ -57,4 +57,3 @@ def delete_counter(name):
         return {"Message": f"Counter {name} has been deleted"}, status.HTTP_204_NO_CONTENT  #
     # If the counter we wanted to delete doesn't exist, return an error message and a 404_NOT_FOUND return code
     return {"Message": f"Cannot delete counter {name}, it does not exist"}, status.HTTP_404_NOT_FOUND
-
