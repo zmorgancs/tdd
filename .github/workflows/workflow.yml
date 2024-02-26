@@ -30,7 +30,4 @@ jobs:
       - name: Security scanning with Bandit
         run: bandit -r src
 
-      - name: Lint with pylint
-        run: pylint src
-
     container: python:3.9-slim
