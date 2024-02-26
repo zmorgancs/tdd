@@ -27,8 +27,8 @@ jobs:
       - name: Generate Radon metrics
         run: radon cc src -s
 
-      - name: Check documentation with pydocstyle
-        run: pydocstyle src
+      - name: Security scanning with Snyk
+        run: snyk test
 
       - name: Lint with pylint
         run: pylint src
