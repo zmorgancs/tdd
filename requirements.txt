@@ -5,6 +5,5 @@ pinocchio
 coverage
 flake8
 pylint
-pydocstyle
 radon
-snyk
+bandit

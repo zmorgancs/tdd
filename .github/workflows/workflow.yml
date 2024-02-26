@@ -27,8 +27,8 @@ jobs:
       - name: Generate Radon metrics
         run: radon cc src -s
 
-      - name: Security scanning with Snyk
-        run: snyk test
+      - name: Security scanning with Bandit
+        run: bandit -r src
 
       - name: Lint with pylint
         run: pylint src
